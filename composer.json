@@ -1,0 +1,70 @@
+{
+	"name": "bapcltd/markup",
+	"description": "Extensions to signpostmarv/daft-markup",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Marv Blackwell",
+			"email": "marv@bapc.ltd"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"BAPC\\Html\\": [
+				"./src/"
+			]
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"BAPC\\Html\\": [
+				"./tests/"
+			],
+			"SignpostMarv\\DaftMarkup\\Tests\\": [
+				"./vendor/signpostmarv/daft-markup/Tests/"
+			]
+		}
+	},
+	"config": {
+		"classmap-authoritative": true,
+		"sort-packages": true
+	},
+	"conflict": {
+		"vimeo/psalm": "<3.5"
+	},
+	"suggest": {
+		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
+	},
+	"scripts": {
+		"coverage": [
+			"phpunit --stop-on-error --stop-on-warning --stop-on-failure --prepend=./xdebug-filter.phpunit.php --coverage-php=./coverage/clover/phpunit.cov",
+			"phpcov merge ./coverage/clover/ --html ./coverage/"
+		],
+		"tests": [
+			"phpunit --stop-on-error --stop-on-warning --stop-on-failure",
+			"psalm --show-info=false",
+			"phpcpd src",
+			"phpmnd ./ --exclude=./coverage/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
+			"php-cs-fixer fix --verbose --dry-run",
+			"composer-require-checker check ./composer.json"
+		]
+	},
+	"require": {
+		"php": "^7.3,>=7.3.9",
+		"ext-dom": "*",
+		"ext-mbstring": "*",
+		"masterminds/html5": "^2.7",
+		"roave/security-advisories": "dev-master",
+		"signpostmarv/daft-markup": "^2.0"
+	},
+	"require-dev": {
+		"maglnet/composer-require-checker": "^2.0",
+		"phpunit/phpcov": "^6.0",
+		"phpunit/phpunit": "^8.3",
+		"povils/phpmnd": "^2.1",
+		"psalm/plugin-phpunit": "^0.7.0",
+		"sebastian/phpcpd": "^4.1",
+		"signpostmarv/php-cs-fixer-config": "^0.12.0",
+		"vimeo/psalm": "^3.5"
+	}
+}

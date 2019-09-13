@@ -1,0 +1,18 @@
+<?php
+/**
+* PHP-CS-Fixer Config.
+*
+* @author Marv Blackwell
+*/
+declare(strict_types=1);
+
+namespace BAPC;
+
+use SignpostMarv\CS\ConfigUsedWithStaticAnalysis as Config;
+
+return Config::createWithPaths(...[
+	__FILE__,
+	__DIR__ . '/xdebug-filter.phpunit.php',
+	__DIR__ . '/src/',
+	__DIR__ . '/tests/',
+]);

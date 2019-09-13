@@ -1,0 +1,18 @@
+<phpunit
+	bootstrap="./vendor/autoload.php"
+	cacheResult="true"
+	cacheResultFile="./phpunit.cache"
+	resolveDependencies="true"
+	executionOrder="random"
+>
+	<testsuites>
+		<testsuite name="BAPC">
+			<directory>./tests/</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">./src/</directory>
+		</whitelist>
+	</filter>
+</phpunit>
