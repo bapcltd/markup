@@ -54,7 +54,6 @@
 		"ext-dom": "*",
 		"ext-mbstring": "*",
 		"masterminds/html5": "^2.7",
-		"roave/security-advisories": "dev-master",
 		"signpostmarv/daft-markup": "^2.0"
 	},
 	"require-dev": {
@@ -63,6 +62,7 @@
 		"phpunit/phpunit": "^8.3",
 		"povils/phpmnd": "^2.1",
 		"psalm/plugin-phpunit": "^0.7.0",
+		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^4.1",
 		"signpostmarv/php-cs-fixer-config": "^0.12.0",
 		"vimeo/psalm": "^3.5"
