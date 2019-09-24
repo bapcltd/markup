@@ -25,6 +25,28 @@ class Markup extends Base
 		string $encoding = self::DEFAULT_STRING_ENCODING,
 		bool $double = self::DEFAULT_BOOL_DOUBLE_ENCODE
 	) : string {
+		return $this->MarkupArrayToMarkupStringWithParentElement(
+			null,
+			$markup,
+			$xml_style,
+			$flags,
+			$encoding,
+			$double
+		);
+	}
+
+	/**
+	* @param null|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>} $_parent
+	* @param array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>} $markup
+	*/
+	public function MarkupArrayToMarkupStringWithParentElement(
+		? array $_parent,
+		array $markup,
+		bool $xml_style = self::DEFAULT_BOOL_XML_STYLE,
+		int $flags = self::DEFAULT_BITWISE_FLAGS,
+		string $encoding = self::DEFAULT_STRING_ENCODING,
+		bool $double = self::DEFAULT_BOOL_DOUBLE_ENCODE
+	) : string {
 		if ('esi:include' === $markup['!element']) {
 			return
 				'<esi:include' .
@@ -76,7 +98,71 @@ class Markup extends Base
 		);
 	}
 
+	/**
+	* @param null|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>} $parent
+	* @param array<int, scalar|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>}> $markupContent
+	*/
+	public function MarkupCollectionToMarkupStringWithParentElement(
+		? array $parent,
+		array $markupContent,
+		bool $xml_style = self::DEFAULT_BOOL_XML_STYLE,
+		int $flags = self::DEFAULT_BITWISE_FLAGS,
+		string $encoding = self::DEFAULT_STRING_ENCODING,
+		bool $double_encode = self::DEFAULT_BOOL_DOUBLE_ENCODE
+	) : string {
+		$out = '';
+
+		/**
+		* @var array<int, scalar|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>}>
+		*/
+		$markupContent = array_filter($markupContent, [$this, 'MarkupCollectionFilter']);
+
+		foreach ($markupContent as $content) {
+			if (is_array($content)) {
+				$out .= $this->MarkupArrayToMarkupStringWithParentElement(
+					$parent,
+					$content,
+					$xml_style,
+					$flags,
+					$encoding,
+					$double_encode
+				);
+			} else {
+				$out .= htmlentities((string) $content, $flags, $encoding, $double_encode);
+			}
+		}
+
+		return $out;
+	}
+
+	/**
+	* @param array<int, scalar|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>}> $content
+	*/
 	protected function MarkupArrayContentToMarkupString(
+		string $element,
+		array $content,
+		bool $xml_style = self::DEFAULT_BOOL_XML_STYLE,
+		int $flags = self::DEFAULT_BITWISE_FLAGS,
+		string $encoding = self::DEFAULT_STRING_ENCODING,
+		bool $double = self::DEFAULT_BOOL_DOUBLE_ENCODE
+	) : string {
+		return $this->MarkupArrayContentToMarkupStringWithParentElement(
+			null,
+			$element,
+			$content,
+			$xml_style,
+			$flags,
+			$encoding,
+			$double
+		);
+	}
+
+	/**
+	* @param null|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>} $_parent
+	* @param array<int, scalar|array{!element:string, !attributes:array<string, scalar|array<int, scalar>>, !content?:array<int, scalar|array{!element:string}>}> $content
+	*/
+	protected function MarkupArrayContentToMarkupStringWithParentElement(
+		? array $_parent,
 		string $element,
 		array $content,
 		bool $xml_style = self::DEFAULT_BOOL_XML_STYLE,
@@ -110,12 +196,34 @@ class Markup extends Base
 			);
 		}
 
-		return parent::MarkupArrayContentToMarkupString(
-			$element,
-			$content,
-			$xml_style,
-			$flags,
-			$encoding
-		);
+		$emptyContent = [] === $content;
+		$out = '';
+
+		if (
+			$emptyContent &&
+			in_array($element, self::SELF_CLOSING_ELEMENTS, self::BOOL_IN_ARRAY_STRICT)
+		) {
+			$out .= $xml_style ? '/>' : '>';
+		} else {
+			$out .= '>';
+
+			if ( ! $emptyContent) {
+				$out .= $this->MarkupCollectionToMarkupStringWithParentElement(
+					[
+						'!element' => $element,
+						'!attributes' => [],
+					],
+					$content,
+					$xml_style,
+					$flags,
+					$encoding,
+					$double
+				);
+			}
+
+			$out .= '</' . $element . '>';
+		}
+
+		return $out;
 	}
 }
