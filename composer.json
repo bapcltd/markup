@@ -30,7 +30,7 @@
 		"sort-packages": true
 	},
 	"conflict": {
-		"vimeo/psalm": "<3.5"
+		"vimeo/psalm": "<3.7"
 	},
 	"suggest": {
 		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
@@ -45,7 +45,7 @@
 			"psalm --show-info=false",
 			"phpcpd src",
 			"phpmnd ./ --exclude=./coverage/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
-			"php-cs-fixer fix --verbose --dry-run",
+			"php-cs-fixer fix --verbose --diff-format=udiff --dry-run",
 			"composer-require-checker check ./composer.json"
 		]
 	},
@@ -59,12 +59,12 @@
 	"require-dev": {
 		"maglnet/composer-require-checker": "^2.0",
 		"phpunit/phpcov": "^6.0",
-		"phpunit/phpunit": "^8.3",
+		"phpunit/phpunit": "^8.5",
 		"povils/phpmnd": "^2.1",
-		"psalm/plugin-phpunit": "^0.7.0",
+		"psalm/plugin-phpunit": "^0.8.0",
 		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^4.1",
-		"signpostmarv/php-cs-fixer-config": "^0.12.0",
-		"vimeo/psalm": "^3.5"
+		"signpostmarv/php-cs-fixer-config": "^0.13.0",
+		"vimeo/psalm": "^3.7"
 	}
 }
