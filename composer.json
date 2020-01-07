@@ -54,7 +54,7 @@
 		"ext-dom": "*",
 		"ext-mbstring": "*",
 		"masterminds/html5": "^2.7",
-		"signpostmarv/daft-markup": "^2.0"
+		"signpostmarv/daft-markup": "^3.0"
 	},
 	"require-dev": {
 		"maglnet/composer-require-checker": "^2.0",

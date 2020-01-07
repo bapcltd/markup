@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b7e3e0755720d7f432061ecc6c2f276",
+    "content-hash": "1231ec96b42ed5cd99ffa7a558cc2710",
     "packages": [
         {
             "name": "masterminds/html5",
@@ -75,25 +75,25 @@
         },
         {
             "name": "signpostmarv/daft-markup",
-            "version": "v2.0.2",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-markup.git",
-                "reference": "585b42a98d701ab809008c2b5be2a1f57d36a11c"
+                "reference": "80a0ed2d154875f245138e8b37b10d9a72eaa6c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-markup/zipball/585b42a98d701ab809008c2b5be2a1f57d36a11c",
-                "reference": "585b42a98d701ab809008c2b5be2a1f57d36a11c",
+                "url": "https://api.github.com/repos/daft-framework/daft-markup/zipball/80a0ed2d154875f245138e8b37b10d9a72eaa6c3",
+                "reference": "80a0ed2d154875f245138e8b37b10d9a72eaa6c3",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "masterminds/html5": "^2.7",
-                "php": "^7.3"
+                "php": "^7.4"
             },
             "conflict": {
-                "vimeo/psalm": "<3.5,>3.5.1"
+                "vimeo/psalm": "<3.8"
             },
             "require-dev": {
                 "infection/infection": "^0.15.0",
@@ -101,11 +101,11 @@
                 "php-coveralls/php-coveralls": "^2.2",
                 "phpunit/phpunit": "^8.5",
                 "povils/phpmnd": "^2.1",
-                "psalm/plugin-phpunit": "^0.7",
+                "psalm/plugin-phpunit": "dev-master",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.13",
-                "vimeo/psalm": "^3.5,<3.5.2"
+                "signpostmarv/php-cs-fixer-config": "^0.14.0",
+                "vimeo/psalm": "^3.8"
             },
             "suggest": {
                 "vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
@@ -127,7 +127,7 @@
                 }
             ],
             "description": "daft markup",
-            "time": "2020-01-06T18:56:57+00:00"
+            "time": "2020-01-07T11:40:41+00:00"
         }
     ],
     "packages-dev": [
