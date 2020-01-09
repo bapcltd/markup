@@ -1856,16 +1856,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.1",
+            "version": "8.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2"
+                "reference": "018b6ac3c8ab20916db85fa91bf6465acb64d1e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
-                "reference": "7870c78da3c5e4883eaef36ae47853ebb3cb86f2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/018b6ac3c8ab20916db85fa91bf6465acb64d1e0",
+                "reference": "018b6ac3c8ab20916db85fa91bf6465acb64d1e0",
                 "shasum": ""
             },
             "require": {
@@ -1935,7 +1935,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-12-25T14:49:39+00:00"
+            "time": "2020-01-08T08:49:49+00:00"
         },
         {
             "name": "povils/phpmnd",
@@ -4000,16 +4000,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.8.1",
+            "version": "3.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "8e54e3aa060fc490d86d0e2abbf62750516d40fd"
+                "reference": "90d6b73fd8062432030ef39b7b6694b3902daa31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/8e54e3aa060fc490d86d0e2abbf62750516d40fd",
-                "reference": "8e54e3aa060fc490d86d0e2abbf62750516d40fd",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/90d6b73fd8062432030ef39b7b6694b3902daa31",
+                "reference": "90d6b73fd8062432030ef39b7b6694b3902daa31",
                 "shasum": ""
             },
             "require": {
@@ -4017,6 +4017,10 @@
                 "amphp/byte-stream": "^1.5",
                 "composer/xdebug-handler": "^1.1",
                 "ext-dom": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
                 "felixfbecker/advanced-json-rpc": "^3.0.3",
                 "felixfbecker/language-server-protocol": "^1.4",
                 "netresearch/jsonmapper": "^1.0",
@@ -4087,7 +4091,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2019-12-29T16:11:07+00:00"
+            "time": "2020-01-07T13:50:31+00:00"
         },
         {
             "name": "webmozart/assert",
