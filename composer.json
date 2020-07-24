@@ -43,6 +43,7 @@
 		"tests": [
 			"phpunit --stop-on-error --stop-on-warning --stop-on-failure",
 			"psalm --show-info=false",
+			"psalm --taint-analysis",
 			"phpcpd src",
 			"phpmnd ./ --exclude=./coverage/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
 			"php-cs-fixer fix --verbose --diff-format=udiff --dry-run",
