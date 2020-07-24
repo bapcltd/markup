@@ -223,28 +223,28 @@ class ConverterTest extends Base
 
 	/**
 	* @return Generator<
-		int,
-		array{
-			0:class-string<Markup>,
-			1:array<int, mixed>,
-			2:class-string<Throwable>,
-			3:string,
-			4:array{
-				!element:string,
-				!attributes:array<
-					string,
-					scalar|array<int, scalar>
-				>,
-				!content?:array<int, scalar|array{!element:string}>
-			},
-			5?:bool,
-			6?:int,
-			7?:string,
-			8?:bool
-		},
-		mixed,
-		void
-	>
+	 *	int,
+	 *	array{
+	 *		0:class-string<Markup>,
+	 *		1:array<int, mixed>,
+	 *		2:class-string<Throwable>,
+	 *		3:string,
+	 *		4:array{
+	 *			!element:string,
+	 *			!attributes:array<
+	 *				string,
+	 *				scalar|array<int, scalar>
+	 *			>,
+	 *			!content?:array<int, scalar|array{!element:string}>
+	 *		},
+	 *		5?:bool,
+	 *		6?:int,
+	 *		7?:string,
+	 *		8?:bool
+	 *	},
+	 *	mixed,
+	 *	void
+	 * >
 	*/
 	public function dataProviderMarkupArrayToMarkupStringFailureWithMarkupInstanceArgs() : Generator
 	{
@@ -256,23 +256,23 @@ class ConverterTest extends Base
 			) {
 				/**
 				* @var array{
-					0:class-string<Markup>,
-					1:array<int, mixed>,
-					2:class-string<Throwable>,
-					3:string,
-					4:array{
-						!element:string,
-						!attributes:array<
-							string,
-							scalar|array<int, scalar>
-						>,
-						!content?:array<int, scalar|array{!element:string}>
-					},
-					5?:bool,
-					6?:int,
-					7?:string,
-					8?:bool
-				}
+				 *	0:class-string<Markup>,
+				 *	1:array<int, mixed>,
+				 *	2:class-string<Throwable>,
+				 *	3:string,
+				 *	4:array{
+				 *		!element:string,
+				 *		!attributes:array<
+				 *			string,
+				 *			scalar|array<int, scalar>
+				 *		>,
+				 *		!content?:array<int, scalar|array{!element:string}>
+				 *	},
+				 *	5?:bool,
+				 *	6?:int,
+				 *	7?:string,
+				 *	8?:bool
+				 * }
 				*/
 				$out = array_merge([$class, $ctorargs], $v);
 
@@ -288,10 +288,10 @@ class ConverterTest extends Base
 	* @param array<int, mixed> $markup_ctor_args
 	* @param class-string<Throwable> $expected_exception
 	* @param array{
-		!element:string,
-		!attributes:array<string, scalar|array<int, scalar>>,
-		!content?:array<int, scalar|array{!element:string}>
-	} $markup
+	 *	!element:string,
+	 *	!attributes:array<string, scalar|array<int, scalar>>,
+	 *	!content?:array<int, scalar|array{!element:string}>
+	 * } $markup
 	*/
 	public function testMarkupArrayToMarkupStringFailure(
 		string $markup_class,
