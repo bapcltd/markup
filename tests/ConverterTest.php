@@ -14,8 +14,8 @@ use Throwable;
 class ConverterTest extends Base
 {
 	/**
-	* @return array<int, array{0:class-string<Markup>, 1:array<int, mixed>}>
-	*/
+	 * @return array<int, array{0:class-string<Markup>, 1:array<int, mixed>}>
+	 */
 	public function dataProviderMarkupFactory() : array
 	{
 		return [
@@ -27,8 +27,8 @@ class ConverterTest extends Base
 	}
 
 	/**
-	* @return array<int, array<int, mixed|array<int|string, mixed>|string>>
-	*/
+	 * @return array<int, array<int, mixed|array<int|string, mixed>|string>>
+	 */
 	public function dataProviderMarkupArrayToMarkupString() : array
 	{
 		$out = parent::dataProviderMarkupArrayToMarkupString();
@@ -123,8 +123,8 @@ class ConverterTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:class-string<Markup>, 1:mixed[], 2:array, 3:string, 4:array<string, string[]>, 5:array<string, string[]>, 6:array<int, string>}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<Markup>, 1:mixed[], 2:array, 3:string, 4:array<string, string[]>, 5:array<string, string[]>, 6:array<int, string>}, mixed, void>
+	 */
 	public function dataProviderMarkupFactoryPlusUncertainMarkupStringToMarkupArray() : Generator
 	{
 		foreach ($this->dataProviderMarkupFactory() as $k => $markupArgs) {
@@ -152,15 +152,15 @@ class ConverterTest extends Base
 			}
 
 			/**
-			* @var string
-			* @var mixed[] $ctorargs
-			*/
-			list($class, $ctorargs) = $markupArgs;
+			 * @var string
+			 * @var mixed[] $ctorargs
+			 */
+			[$class, $ctorargs] = $markupArgs;
 
 			foreach ($this->dataProviderMarkupStringToMarkupArray() as $v) {
 				/**
-				* @var array{0:class-string<Markup>, 1:mixed[], 2:array, 3:string, 4:array<string, string[]>, 5:array<string, string[]>, 6:array<int, string>}
-				*/
+				 * @var array{0:class-string<Markup>, 1:mixed[], 2:array, 3:string, 4:array<string, string[]>, 5:array<string, string[]>, 6:array<int, string>}
+				 */
 				$out = array_merge(
 					[$class, $ctorargs],
 					is_array($v) ? $v : [$v]
@@ -172,14 +172,14 @@ class ConverterTest extends Base
 	}
 
 	/**
-	* @param class-string<Markup> $class,
-	* @param array<string, string[]> $excludeElements
-	* @param array<string, string[]> $keepElements
-	* @param array<int, string> $generalAttrWhitelist
-	*
-	* @dataProvider dataProviderMarkupFactoryPlusUncertainMarkupStringToMarkupArray
-	*/
-	public function testUncertainMarkupStringToMarkupArray(
+	 * @param class-string<Markup> $class,
+	 * @param array<string, string[]> $excludeElements
+	 * @param array<string, string[]> $keepElements
+	 * @param array<int, string> $generalAttrWhitelist
+	 *
+	 * @dataProvider dataProviderMarkupFactoryPlusUncertainMarkupStringToMarkupArray
+	 */
+	public function test_uncertain_markup_string_to_markup_array(
 		string $class,
 		array $ctorargs,
 		array $expected,
@@ -189,8 +189,8 @@ class ConverterTest extends Base
 		array $generalAttrWhitelist = []
 	) : void {
 		/**
-		* @var Markup
-		*/
+		 * @var Markup
+		 */
 		$converter = 0 === count($ctorargs) ? new $class() : new $class(...$ctorargs);
 		static::assertSame(
 			$expected,
@@ -222,7 +222,7 @@ class ConverterTest extends Base
 	}
 
 	/**
-	* @return Generator<
+	 * @return Generator<
 	 *	int,
 	 *	array{
 	 *		0:class-string<Markup>,
@@ -245,7 +245,7 @@ class ConverterTest extends Base
 	 *	mixed,
 	 *	void
 	 * >
-	*/
+	 */
 	public function dataProviderMarkupArrayToMarkupStringFailureWithMarkupInstanceArgs() : Generator
 	{
 		foreach ($this->dataProviderMarkupFactory() as $k => $markupArgs) {
@@ -255,7 +255,7 @@ class ConverterTest extends Base
 				$this->dataProviderMarkupArrayToMarkupStringFailure() as $v
 			) {
 				/**
-				* @var array{
+				 * @var array{
 				 *	0:class-string<Markup>,
 				 *	1:array<int, mixed>,
 				 *	2:class-string<Throwable>,
@@ -273,7 +273,7 @@ class ConverterTest extends Base
 				 *	7?:string,
 				 *	8?:bool
 				 * }
-				*/
+				 */
 				$out = array_merge([$class, $ctorargs], $v);
 
 				yield $out;
@@ -282,18 +282,18 @@ class ConverterTest extends Base
 	}
 
 	/**
-	* @dataProvider dataProviderMarkupArrayToMarkupStringFailureWithMarkupInstanceArgs
-	*
-	* @param class-string<Markup> $markup_class
-	* @param array<int, mixed> $markup_ctor_args
-	* @param class-string<Throwable> $expected_exception
-	* @param array{
+	 * @dataProvider dataProviderMarkupArrayToMarkupStringFailureWithMarkupInstanceArgs
+	 *
+	 * @param class-string<Markup> $markup_class
+	 * @param array<int, mixed> $markup_ctor_args
+	 * @param class-string<Throwable> $expected_exception
+	 * @param array{
 	 *	!element:string,
 	 *	!attributes:array<string, scalar|array<int, scalar>>,
 	 *	!content?:array<int, scalar|array{!element:string}>
 	 * } $markup
-	*/
-	public function testMarkupArrayToMarkupStringFailure(
+	 */
+	public function test_markup_array_to_markup_string_failure(
 		string $markup_class,
 		array $markup_ctor_args,
 		string $expected_exception,

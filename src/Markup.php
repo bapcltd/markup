@@ -16,8 +16,8 @@ use SignpostMarv\DaftMarkup\MarkupValidator;
 class Markup extends Base
 {
 	/**
-	* @param array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $markup
-	*/
+	 * @param array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $markup
+	 */
 	public function MarkupArrayToMarkupString(
 		array $markup,
 		bool $xml_style = self::DEFAULT_BOOL_XML_STYLE,
@@ -36,9 +36,9 @@ class Markup extends Base
 	}
 
 	/**
-	* @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $_parent
-	* @param array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $markup
-	*/
+	 * @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $_parent
+	 * @param array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $markup
+	 */
 	public function MarkupArrayToMarkupStringWithParentElement(
 		? array $_parent,
 		array $markup,
@@ -69,12 +69,12 @@ class Markup extends Base
 	}
 
 	/**
-	* @param array<string, list<string>> $exclude_elements
-	* @param array<string, list<string>> $keep_elements
-	* @param list<string> $general_attribute_whitelist
-	*
-	* @return list<array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}>
-	*/
+	 * @param array<string, list<string>> $exclude_elements
+	 * @param array<string, list<string>> $keep_elements
+	 * @param list<string> $general_attribute_whitelist
+	 *
+	 * @return list<array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}>
+	 */
 	public function UncertainMarkupStringToMarkupArray(
 		string $markup,
 		array $exclude_elements = [],
@@ -99,9 +99,9 @@ class Markup extends Base
 	}
 
 	/**
-	* @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $parent
-	* @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $markupContent
-	*/
+	 * @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $parent
+	 * @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $markupContent
+	 */
 	public function MarkupCollectionToMarkupStringWithParentElement(
 		? array $parent,
 		array $markupContent,
@@ -113,8 +113,8 @@ class Markup extends Base
 		$out = '';
 
 		/**
-		* @var list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}>
-		*/
+		 * @var list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}>
+		 */
 		$markupContent = array_filter($markupContent, [$this, 'MarkupCollectionFilter']);
 
 		foreach ($markupContent as $content) {
@@ -136,8 +136,8 @@ class Markup extends Base
 	}
 
 	/**
-	* @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $content
-	*/
+	 * @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $content
+	 */
 	protected function MarkupArrayContentToMarkupString(
 		string $element,
 		array $content,
@@ -158,9 +158,9 @@ class Markup extends Base
 	}
 
 	/**
-	* @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $_parent
-	* @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $content
-	*/
+	 * @param null|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>} $_parent
+	 * @param list<scalar|array{!element:string, !attributes:array<string, scalar|list<scalar>>, !content?:list<scalar|array{!element:string}>}> $content
+	 */
 	protected function MarkupArrayContentToMarkupStringWithParentElement(
 		? array $_parent,
 		string $element,
