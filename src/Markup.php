@@ -6,8 +6,15 @@ declare(strict_types=1);
 
 namespace BAPC\Html;
 
+use function array_filter;
+use function array_merge;
+use function count;
 use DOMElement;
+use function htmlentities;
+use function implode;
+use function in_array;
 use InvalidArgumentException;
+use function is_array;
 use Masterminds\HTML5;
 use SignpostMarv\DaftMarkup\Markup as Base;
 use SignpostMarv\DaftMarkup\MarkupUtilities;

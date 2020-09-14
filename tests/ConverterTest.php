@@ -6,9 +6,14 @@ declare(strict_types=1);
 
 namespace BAPC\Html;
 
+use function array_merge;
+use function count;
 use Generator;
 use InvalidArgumentException;
+use function is_array;
+use function is_string;
 use SignpostMarv\DaftMarkup\Tests\ConverterTest as Base;
+use function sprintf;
 use Throwable;
 
 class ConverterTest extends Base

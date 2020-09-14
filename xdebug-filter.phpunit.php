@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace BAPC;
 
+use function realpath;
 use const XDEBUG_FILTER_CODE_COVERAGE;
 use const XDEBUG_PATH_WHITELIST;
 use function xdebug_set_filter;
