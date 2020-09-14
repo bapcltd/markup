@@ -55,17 +55,17 @@
 		"ext-dom": "*",
 		"ext-mbstring": "*",
 		"masterminds/html5": "^2.7",
-		"signpostmarv/daft-markup": "^3.1"
+		"signpostmarv/daft-markup": "^3.3"
 	},
 	"require-dev": {
 		"maglnet/composer-require-checker": "^2.0",
 		"phpunit/phpcov": "^6.0",
 		"phpunit/phpunit": "^8.5",
 		"povils/phpmnd": "^2.3",
-		"psalm/plugin-phpunit": "^0.10.1",
+		"psalm/plugin-phpunit": "^0.12.1",
 		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^4.1",
 		"signpostmarv/php-cs-fixer-config": "^0.17.2",
-		"vimeo/psalm": "^3.12"
+		"vimeo/psalm": "^3.15"
 	}
 }
