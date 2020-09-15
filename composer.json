@@ -37,11 +37,16 @@
 	},
 	"scripts": {
 		"coverage": [
-			"phpunit --stop-on-error --stop-on-warning --stop-on-failure --prepend=./xdebug-filter.phpunit.php --coverage-php=./coverage/clover/phpunit.cov",
-			"phpcov merge ./coverage/clover/ --html ./coverage/"
+			"phpunit --prepend ./xdebug-filter.phpunit.php -vvvv --testdox --coverage-html ./coverage/phpunit/"
+		],
+		"coverage-clover": [
+			"phpunit --prepend ./xdebug-filter.phpunit.php -vvvv --coverage-clover ./coverage/phpunit.clover.xml"
 		],
 		"tests": [
-			"phpunit --stop-on-error --stop-on-warning --stop-on-failure",
+			"phpunit --prepend ./xdebug-filter.phpunit.php --no-coverage --stop-on-error --stop-on-warning --stop-on-failure",
+			"@static-analysis"
+		],
+		"static-analysis": [
 			"psalm --show-info=false",
 			"psalm --taint-analysis",
 			"phpcpd src",
