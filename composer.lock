@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89c120056a695723d0bdc73b5ab4d41a",
+    "content-hash": "81eb733642a0b1d898a0bc67f4e6e074",
     "packages": [
         {
             "name": "masterminds/html5",
@@ -1968,58 +1968,6 @@
             ],
             "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
-        },
-        {
-            "name": "phpunit/phpcov",
-            "version": "6.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpcov.git",
-                "reference": "63c32ed2a7dd18e5bd07f58aed1982d2ec9f1960"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpcov/zipball/63c32ed2a7dd18e5bd07f58aed1982d2ec9f1960",
-                "reference": "63c32ed2a7dd18e5bd07f58aed1982d2ec9f1960",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2",
-                "phpunit/php-code-coverage": "^7.0",
-                "phpunit/phpunit": "^8.0",
-                "sebastian/diff": "^3.0",
-                "sebastian/finder-facade": "^1.1",
-                "sebastian/version": "^2.0",
-                "symfony/console": "^3.0 || ^4.0"
-            },
-            "bin": [
-                "phpcov"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "CLI frontend for php-code-coverage",
-            "homepage": "https://github.com/sebastianbergmann/phpcov",
-            "time": "2019-11-18T13:38:50+00:00"
         },
         {
             "name": "phpunit/phpunit",
