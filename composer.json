@@ -47,7 +47,7 @@
 			"@static-analysis"
 		],
 		"static-analysis": [
-			"psalm --show-info=false",
+			"psalm --show-info=false --shepherd",
 			"psalm --taint-analysis",
 			"phpcpd src",
 			"phpmnd ./ --exclude=./coverage/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
